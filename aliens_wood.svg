@@ -59,7 +59,8 @@
      id="layer1"
      transform="translate(1295.9349,-252.36218)">
     <g
-       id="g3005">
+       id="g3005"
+       style="opacity:0.85">
       <g
          transform="matrix(1.1799322,0,0,1.1818275,158.07972,-136.8001)"
          id="g7906">
@@ -188,7 +189,7 @@
          height="76.771591"
          width="1218.244"
          id="rect3003"
-         style="opacity:0.5;fill:#335b27;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+         style="opacity:0.50000000000000000;fill:#335b27;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
   </g>
 </svg>
