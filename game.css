@@ -94,6 +94,10 @@ li{
     background: url("enemy_cookie.svg") no-repeat 0 120px;
     background-size: 460px 700px;
 }
+#fairy > div.enemy{
+    background: url("enemy_fairy.svg") no-repeat 0 120px;
+    background-size: 400px 600px;
+}
 /*------------------------------Bottom panel-----------------------------------------------*/
 #bottompanel{
     width: 100%;
