@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title>Game</title>
+    <script src="jquery-1.9.1.js"></script>
+    <script src = "game.js"></script>
+    <link rel = "stylesheet" href = "game.css">
+</head>
+<body>
+    <div id = "mainpanel">
+        <div>
+            <ul>
+                <li data-planet = "aliens">Disgusting aliens</li>
+                <li data-planet = "weird">Something weird</li>
+                <li data-planet = "butt">Buttwings</li>
+                <li data-planet = "fairy">Fairy people</li>
+                <li data-planet = "man">Cookie Man</li>
+            </ul>
+        </div>
+        <div class = "planets" id = "aliens">
+            <div class = "hero"></div>
+            <div class = "enemy"></div>
+        </div>
+        <div class = "planets" id = "weird">
+            <div class = "hero"></div>
+            <div class = "enemy"></div>
+        </div>
+        <div class = "planets" id = "butt">
+            <div class = "hero"></div>
+            <div class = "enemy"></div>
+        </div>
+        <div class = "planets" id = "fairy">
+            <div class = "hero"></div>
+            <div class = "enemy"></div>
+        </div>
+        <div class = "planets" id = "man">
+            <div class = "hero"></div>
+            <div class = "enemy"></div>
+        </div>
+    </div>
+    <div id = "bottompanel">
+        <div id = "speech">
+            <div></div>
+            <div><span>I gave a talk last week at Yahoo (at the request of the YUI team) all about the DOM.
+                I outlined some of the reasons why the current situation is such a mess, outline some strategies
+                for working around it,
+                and then give some examples of real world code that’s being implemented in libraries today</span></div>
+            <div>
+                <ul>
+                    <li>Start attack</li>
+                    <li>Return to the ship</li>
+                </ul>
+            </div>
+        </div>
+        <div id = "fight"></div>
+    </div>
+</body>
+</html>
