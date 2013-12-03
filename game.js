@@ -3,7 +3,7 @@ $(document).ready(function(){
         {
             _id: "aliens",
             complete: false,
-            conversations: "Welcome to Disgusting Aliens planet! Locals are really disgusting, I've heared they like cats... as main dish."},
+            conversations: "Welcome to Disgusting Aliens planet! Locals are really disgusting, I heard they like cats... as main dish."},
         {
             _id: "weird",
             complete: false,
@@ -43,7 +43,7 @@ $(document).ready(function(){
             }
         }
     }
-    function fight(){
+    function fightmode(){
         var yourhit = Math.floor((Math.random()*10)+5);
         var enemyhit = Math.floor((Math.random()*10)+5);
         yourhealth =  healthcalculator(enemyhit, yourhealth);
@@ -55,7 +55,7 @@ $(document).ready(function(){
             return "You are win!";
         }
         else{
-            return fight();
+            return fightmode();
         }
     }
     function healthcalculator(hit, health){
@@ -66,7 +66,24 @@ $(document).ready(function(){
         $("#mainpanel").find("div").removeClass("hidden");
         $("#speech").find("div").eq(1).find("span").text(quest[5].conversations);
     }
-
+    function startAttack(){
+        var start = null;
+        var cat = $(".showed").find(".hero");
+        function step(timestamp){
+            debugger;
+            var progress;
+            if(start === null){
+                start = timestamp;
+            }
+            progress = timestamp - start;
+            $(cat).css("background-position", -progress);
+            if(progress < 500){
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+    }
     $("#mainpanel").find("li").click(goToPlanet);
     $("#speech").find("li").eq(1).click(goToTheShip);
+    $("#speech").find("li").eq(0).click(startAttack);
 });
