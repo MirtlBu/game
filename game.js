@@ -76,7 +76,7 @@ $(document).ready(function(){
                 start = timestamp;
             }
             progress = timestamp - start;
-            $(cat).css("background-position", -progress);
+                $(cat).css("left", progress+100);
             if(progress < 500){
                 requestAnimationFrame(step);
             }
