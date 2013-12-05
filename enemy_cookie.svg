@@ -10,8 +10,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1560"
-   height="1583.0726"
+   width="512.4212"
+   height="520"
    id="svg3952"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -27,7 +27,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.23435166"
      inkscape:cx="1116.1814"
-     inkscape:cy="186.22086"
+     inkscape:cy="186.22091"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -50,7 +50,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -59,7 +59,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="display:none"
-     transform="translate(1002.8571,510.49496)">
+     transform="translate(1002.8571,-552.57771)">
     <image
        y="-513.35211"
        x="-1277.1428"
@@ -73,18 +73,19 @@
      id="layer2"
      inkscape:label="1"
      style="display:inline"
-     transform="translate(1002.8571,510.49496)" />
+     transform="translate(1002.8571,-552.57771)" />
   <g
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="3"
      style="display:inline"
-     transform="translate(1002.8571,510.49496)">
+     transform="translate(1002.8571,-552.57771)">
     <g
-       id="g3933">
+       id="g3933"
+       transform="matrix(0.32847513,0,0,0.32847513,-673.44348,720.26261)">
       <path
          transform="matrix(1,0,0,0.7077485,-79.94796,212.9774)"
-         d="m 465.65971,978.05481 a 619.22833,138.70714 0 1 1 -1238.45666,0 619.22833,138.70714 0 1 1 1238.45666,0 z"
+         d="m 465.65971,978.05481 c 0,76.60579 -277.23796,138.70709 -619.22833,138.70709 -341.99036,0 -619.22833,-62.1013 -619.22833,-138.70709 0,-76.60584 277.23797,-138.70714 619.22833,-138.70714 341.99037,0 619.22833,62.1013 619.22833,138.70714 z"
          sodipodi:ry="138.70714"
          sodipodi:rx="619.22833"
          sodipodi:cy="978.05481"

@@ -9,8 +9,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="748.50616"
-   height="406.0701"
+   width="748.00226"
+   height="405.6156"
    id="svg3812"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.84590412"
-     inkscape:cx="534.76911"
-     inkscape:cy="357.36407"
+     inkscape:zoom="0.61680509"
+     inkscape:cx="505.62879"
+     inkscape:cy="30.487132"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="true"
@@ -49,7 +49,7 @@
        enabled="true"
        snapvisiblegridlinesonly="true"
        originx="1900.0203px"
-       originy="-305.27309px" />
+       originy="-304.86779px" />
   </sodipodi:namedview>
   <metadata
      id="metadata3817">
@@ -67,11 +67,11 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="2"
-     transform="translate(1740.0203,-123.01892)">
+     transform="translate(1740.0203,-123.87872)">
     <g
-       id="g5470">
+       id="g11238">
       <g
-         transform="matrix(0.77986145,0,0,0.77986145,-1864.7981,-121.59789)"
+         transform="matrix(0.77986145,0,0,0.77986145,-1864.7981,-121.19258)"
          id="g3342-4">
         <path
            transform="matrix(0.51393901,0,0,0.71856287,128.28806,224.76061)"
@@ -170,7 +170,7 @@
            sodipodi:type="arc" />
       </g>
       <g
-         transform="matrix(0.77986145,0,0,0.77986145,-2277.4925,-121.74584)"
+         transform="matrix(0.77986145,0,0,0.77986145,-2278.1087,-121.02934)"
          id="g4553">
         <path
            transform="matrix(0.51393901,0,0,0.71856287,978.82748,224.38109)"
@@ -329,7 +329,7 @@
            style="fill:#0788bd;fill-opacity:1;fill-rule:nonzero;stroke:none" />
       </g>
       <g
-         transform="matrix(0.77986145,0,0,0.77986145,-1770.328,-122.02252)"
+         transform="matrix(0.77986145,0,0,0.77986145,-1770.8319,-121.16272)"
          id="g4235">
         <path
            transform="matrix(0.51393901,0,0,0.71856287,648.88146,224.43884)"
