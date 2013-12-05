@@ -1,193 +1,185 @@
 body{
     margin: 0;
     padding: 0;
-    height: 900px;
+    height: 890px;
     background-color: darkgray;
 }
 ::selection{
     background: transparent;
 }
-#mainpanel{
-    width: 100%;
-    height: 700px;
-    background: radial-gradient(royalblue, midnightblue, #000000);
-}
-#mainpanel > div:first-child{
-    padding-top: 150px;
-}
-.planets{
-    display: none;
+li{
+    list-style: none;
 }
 ul{
     margin: 0;
-}
-li{
-    cursor: pointer;
-    list-style: none;
-}
-#mainpanel li{
-    width: 100px;
-    height: 100px;
-    display: inline-block;
-    margin-left: 110px;
-    background-size: 624px;
-    border-radius: 50px;
-    box-shadow: 0 0 55px 5px #aaaaaa;
-}
-#mainpanel li:nth-child(5){
-    background: url("ship_planets.svg") no-repeat -105px 0;
-}
-#mainpanel li:nth-child(4){
-    background: url("ship_planets.svg") no-repeat -210px 0;
-}
-#mainpanel li:nth-child(1){
-    background: url("ship_planets.svg") no-repeat -314px 0;
-}
-#mainpanel li:nth-child(2){
-    background: url("ship_planets.svg") no-repeat -419px 0;
-}
-#mainpanel li:nth-child(3){
-    background: url("ship_planets.svg") no-repeat -523px 0;
-}
-li#spaceship{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 600px;
-    top: 600px;
-    margin: 0;
     padding: 0;
-    background: url("ship_planets.svg") no-repeat 0 0;
-    box-shadow: 0 0;
 }
-/*==================================Planets========================================*/
-#aliens{
+.toppanel{
     width: 100%;
-    height: 100%;
-    background: url("aliens_wood.svg") no-repeat 0 0, linear-gradient(olive, yellowgreen, yellow);
-    background-size: 1300px 850px;
-
+    height: 700px;
+    background: url("ship.svg") no-repeat 0 0;
+    background-size: 1280px;
 }
-#weird{
-    width: 100%;
-    height: 100%;
-    background: url("weird_rocks.svg") no-repeat 0 0, linear-gradient(midnightblue, royalblue, lightskyblue);
-    background-size: 1300px 850px;
+.space{
+    background: radial-gradient(royalblue, midnightblue);
 }
-#butt{
-    width: 100%;
-    height: 100%;
-    background: url("butt_hills.svg") no-repeat 0 10px, linear-gradient(darkred, hotpink, yellow);
-    background-size: 1300px 850px;
-}
-#fairy{
-    width: 100%;
-    height: 100%;
-    background: url("fairy_wood.svg") no-repeat 0 0, linear-gradient(darkslategray, darkseagreen, yellow);
-    background-size: 1300px 810px;
-
-}
-#man{
-    width: 100%;
-    height: 100%;
-    background: url("cookie_wood.svg") no-repeat 0 0, linear-gradient(sienna, lemonchiffon, papayawhip);
-    background-size: 1300px 850px;
-}
-/*++++++++++++++++++++++++++++++++++++Enemies&Hero++++++++++++++++++++++++++++++++++++++++++*/
-.hero{
-    width: 250px;
-    height: 412px;
+.toppanel li{
+    width: 100px;
+    height: 100px;
     position: absolute;
-    left: 100px;
-    top: 280px;
-    background: url("cat.svg") no-repeat 0 0;
-    background-size: 750px;
-}
-
-#bullet{
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    background-color: yellow;
-    position: absolute;
-    top: 370px;
-    left: 370px;
+    border-radius: 50px;
+    top: 50px;
+    cursor: pointer;
+    background: no-repeat;
+    box-shadow: 0 0 25px 5px #aaaaaa;
     display: none;
+}
+.toppanel li:nth-child(1){
+    left: 120px;
+    background: url("ship_planets.svg") -314px 0;
+}
+.toppanel li:nth-child(2){
+    left: 340px;
+    background: url("ship_planets.svg") -419px 0;
+}
+.toppanel li:nth-child(3){
+    left: 560px;
+    background: url("ship_planets.svg") -524px 0;
+}
+.toppanel li:nth-child(4){
+    left: 780px;
+    background: url("ship_planets.svg") -209px 0;
+}
+.toppanel li:nth-child(5){
+    left: 1000px;
+    background: url("ship_planets.svg") -105px 0;
+}
+.toppanel li:nth-child(6){
+    top: 600px;
+    left: 560px;
+    border-radius: 0;
+    background: url("ship_planets.svg") no-repeat 0 0;
+    box-shadow: none;
+}
+.aliens{
+    background: url("aliens_wood.svg") no-repeat 0 0 olive;
+}
+.weird{
+    background: url("weird_rocks.svg") no-repeat 0 0 royalblue;
+}
+.butt{
+    background: url("butt_hills.svg") no-repeat 0 0 pink;
+}
+.fairy{
+    background: url("fairy_wood.svg") no-repeat 0 0 lightgreen;
+}
+.man{
+    background: url("cookie_wood.svg") no-repeat 0 0 sandybrown;
+}
+.hero{
+    width: 240px;
+    height: 430px;
+    left: 100px;
+    top: 270px;
+    background: url("cat.svg") no-repeat 0 0;
+    display: none;
+    position: absolute;
 }
 .enemy{
     width: 500px;
-    height: 390px;
-    float: right;
-    margin-right: 100px;
-    padding-top: 310px;
+    height: 530px;
+    left: 700px;
+    top: 170px;
+    position: absolute;
 }
-#aliens > div.enemy{
-     background: url("enemy_disgust.svg") no-repeat 10px 250px;
-     background-size: 380px 520px;
- }
-#butt > div.enemy{
-    background: url("enemy_butt.svg") no-repeat 50px 260px;
-    background-size: 350px 500px;
+.alienschar{
+    background: url("enemy_disgust.svg") no-repeat 0 60px;
 }
-#man > div.enemy{
-    background: url("enemy_cookie.svg") no-repeat 0 120px;
-    background-size: 460px 700px;
+.weirdchar{
+    background: url("enemy_weird.svg") no-repeat 170px 110px;
 }
-#fairy > div.enemy{
-    background: url("enemy_fairy.svg") no-repeat 0 120px;
-    background-size: 400px 600px;
+.buttchar{
+    background: url("enemy_butt.svg") no-repeat 120px 100px;
 }
-/*------------------------------Bottom panel-----------------------------------------------*/
-#bottompanel{
+.fairychar{
+    background: url("enemy_fairy.svg") no-repeat 100px 20px;
+}
+.manchar{
+    background: url("enemy_cookie.svg") no-repeat 0 0;
+}
+/*--------------------------------------------------------------------------------------------*/
+.bottompanel{
     width: 100%;
-    height: 199px;
-    border-top: 5px solid rgb(56,56,56);
+    height: 198px;
+    border-top: 10px solid rgb(72,72,72) ;
 }
-#speech{
-    height: 100%;
-}
-#speech > div{
-    display: inline-block;
-    height: 100%;
-}
-#speech > div:first-child{
-    width: 300px;
-    background: url("cat_portrait.svg") no-repeat 30px -35px;
-    background-size: 490px 230px;
-}
-#speech > div:nth-child(2){
-    width: 630px;
-    background: url("speech.svg") no-repeat 10px 10px;
-    background-size: 600px;
-}
-#speech > div:nth-child(2) > span{
-    width: 500px;
-    font-size: 20px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 30px;
-}
-#speech > div:last-child{
-    width: 300px;
-}
-#speech > div:last-child > ul > li{
-    width: 235px;
-    height: 45px;
-    padding-top: 35px;
-    float: right;
-    text-align: center;
-    font-size: 22px;
-    background-color: red;
-    background: url("button.svg") no-repeat 10px 10px;
-    background-size: 200px;
-}
-#speech > div:last-child > ul > li:last-child{
-    margin-top: 20px;
-}
-/*-------------------------------------------Adding class-----------------------------------------*/
-.showed{
-    display: block;
-}
-.hidden{
+
+.bottompanel > div{
+    position: absolute;
+    height: 198px;
     display: none;
 }
+.bottompanel > div:nth-child(1){
+    width: 325px;
+    left: 0;
+    background: url("cat_portrait.svg") no-repeat 75px 0;
+}
+.bottompanel > div:nth-child(2){
+    width: 620px;
+    left: 330px;
+}
+.herosays{
+    background: url("cloud_button.svg") no-repeat 0 10px;
+}
+.enemysays{
+    background: url("cloud_button.svg") no-repeat -700px 10px;
+}
+.bottompanel  span{
+    width: 450px;
+    height: 150px;
+    position: absolute;
+    top: 25px;
+    left: 65px;
+    font-size: 22px;
+    font-family: sans-serif;
+    text-align: center;
+}
+.bottompanel > div:nth-child(3){
+    width: 325px;
+    left: 955px;
+}
+.bottompanel  li{
+    width: 222px;
+    height: 50px;
+    padding-top: 30px;
+    position: absolute;
+    background: url("cloud_button.svg") no-repeat -1455px -102px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    font-family: sans-serif;
+    display: none;
+}
+.bottompanel li:nth-child(1){
+    top: 60px;
+}
+.bottompanel li:nth-child(2){
+    top: 10px;
+}
+.bottompanel li:nth-child(3){
+    top: 100px;
+}
+.bottompanel > div:nth-child(3).aliens{
+    background: url("cat_portrait.svg") no-repeat -205px 0;
+}
+div.showed, span.showed, li.showed{
+    display: block;
+}
+div.hidden, span.hidden, li.hidden{
+    display: none;
+}
+.bottompanel li:hover{
+    background: url("cloud_button.svg") no-repeat -1729px -102px;
+}
+
+

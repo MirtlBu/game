@@ -7,7 +7,7 @@ $(document).ready(function(){
         {
             _id: "weird",
             complete: false,
-            conversations: "This is Something Weird planet. I smell something weird..."},
+            conversations: "This is Something Weird planet. I feel something weird..."},
         {
             _id: "butt",
             complete: false,
@@ -25,24 +25,12 @@ $(document).ready(function(){
             conversations: "Come on, we should do this quest! Choose the planet and let's go!"
         }
     ];
-
+    var objectDom = {
+        toppanel: ".toppanel",
+        bottompanel: ".bottompanel"
+    }
     var yourhealth = 100;
     var enemyhealth = Math.floor((Math.random()*100)+50);
-    function goToPlanet(){
-        var _id  = $(this).attr("data-planet");
-        for(var i = 0; i < quest.length; i++){
-            if(quest[i]._id === _id){
-                if(quest[i].complete == true){
-                    return "We've been here, only monsters and nothing more."
-                }
-                else{
-                    $(this).closest("div").addClass("hidden");
-                    $("#" + _id).addClass("showed");
-                    $("#speech").find("div").eq(1).find("span").text(quest[i].conversations);
-                }
-            }
-        }
-    }
     function fightmode(){
         var yourhit = Math.floor((Math.random()*10)+5);
         var enemyhit = Math.floor((Math.random()*10)+5);
@@ -61,11 +49,6 @@ $(document).ready(function(){
     function healthcalculator(hit, health){
         return health - hit;
     }
-    function goToTheShip(){
-        $(".planets").removeClass("showed");
-        $("#mainpanel").find("div").removeClass("hidden");
-        $("#speech").find("div").eq(1).find("span").text(quest[5].conversations);
-    }
     function startAttack(){
         var start = null;
         var cat = $(".showed").find(".hero");
@@ -83,7 +66,60 @@ $(document).ready(function(){
         }
         requestAnimationFrame(step);
     }
-    $("#mainpanel").find("li").click(goToPlanet);
-    $("#speech").find("li").eq(1).click(goToTheShip);
-    $("#speech").find("li").eq(0).click(startAttack);
+    function play(){
+        $(this).text("Let's go!");
+        $(".herosays").find("span").text("We've got a quest to deliver pure pink cosmethamphetamine to Doge planetary system." +
+            " But during a collision with an asteroid, we've lost the exact coordinates. " +
+            "We'll have to land on each of the five planets to find our buyer. Are you ready?");
+        $(this).one("click", toSpace);
+    }
+    function toSpace(){
+        $(this).text("Land on");
+        $(".herosays").find("span").text("Fly to one of these planets, land on and explore.");
+        addclass($("div.toppanel"), "space");
+        addclass($("div.toppanel").find("li"), "showed");
+
+    }
+    function goToPlanet(){
+        var _id  = $(this).attr("data-planet");
+        for(var i = 0; i < quest.length; i++){
+            if(quest[i]._id === _id){
+                if(quest[i].complete == true){
+                    return "We've been here, only monsters and nothing more."
+                }
+                else{
+                    $(objectDom.bottompanel).find("li").eq(0).removeClass("showed");
+                    $(objectDom.bottompanel).find("li").eq(1).addClass("showed");
+                    $(objectDom.bottompanel).find("li").eq(2).addClass("showed");
+                    $(objectDom.toppanel).removeClass("space").addClass(quest[i]._id).find("li").removeClass("showed");
+                    $("div.hero").addClass("showed");
+                    $(".herosays").find("span").text(quest[i].conversations);
+                    addclass($("div.enemy"), quest[i]._id + "char");
+                }
+            }
+        }
+    }
+    function backToShip(){
+        addclass($(objectDom.bottompanel).find("li").eq(0), "showed");
+        removeclass($(objectDom.bottompanel).find("li").eq(1), "showed");
+        removeclass($(objectDom.bottompanel).find("li").eq(2), "showed");
+        addclass($(objectDom.toppanel), "space");
+        removeclass($(objectDom.toppanel), "aliens weird butt fairy man");
+        removeclass($("div.hero"), "showed");
+        removeclass($("div.enemy"), "alienschar weirdchar buttchar fairychar manchar ");
+        addclass($(objectDom.toppanel).find("li"), "showed");
+        $(".herosays").find("span").text(quest[5].conversations);
+    }
+    function addclass(element, classname){
+       $(element).addClass(classname);
+    }
+    function removeclass(element, classname){
+        $(element).removeClass(classname);
+    }
+    addclass($(objectDom.bottompanel).find("div"), "showed");
+    addclass($(objectDom.bottompanel).find("div").eq(1), "herosays");
+    addclass($(objectDom.bottompanel).find("li").eq(0), "showed");
+    $(objectDom.bottompanel).find("li").eq(0).text("Play").one("click", play);
+    $(objectDom.toppanel).find("li").click(goToPlanet);
+    $(objectDom.bottompanel).find("li").eq(2).click(backToShip);
 });
