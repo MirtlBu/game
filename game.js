@@ -49,27 +49,35 @@ $(document).ready(function(){
     function healthcalculator(hit, health){
         return health - hit;
     }
-    function startAttack(){
+    //-------------------------------------------------------------------------
+    function awesomeSky(){
         var start = null;
-        var cat = $(".showed").find(".hero");
         function step(timestamp){
             debugger;
             var progress;
+            var spritelength = 600;
+            var spritenum = 3;
+            var currentposition;
+            var frame;
+            var x_axis;
             if(start === null){
                 start = timestamp;
             }
             progress = timestamp - start;
-                $(cat).css("left", progress+100);
-            if(progress < 500){
-                requestAnimationFrame(step);
-            }
+            currentposition = progress % (spritelength*spritenum);
+            frame = Math.floor(currentposition/spritelength);
+            x_axis = frame*spritelength + "px";
+            $("div.sky").css("background-position",  x_axis);
+            var pos = $("div.sky").css("background-position");
+            requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
     }
+    //----------------------------------------------------------------------------------------
     function play(){
         $(this).text("Let's go!");
         $(".herosays").find("span").text("We've got a quest to deliver pure pink cosmethamphetamine to Doge planetary system." +
-            " But during a collision with an asteroid, we've lost the exact coordinates. " +
+            " But after accident with an unexpected asteroid, we've lost the exact coordinates. " +
             "We'll have to land on each of the five planets to find our buyer. Are you ready?");
         $(this).one("click", toSpace);
     }
@@ -77,6 +85,7 @@ $(document).ready(function(){
         $(this).text("Land on");
         $(".herosays").find("span").text("Fly to one of these planets, land on and explore.");
         addclass($("div.toppanel"), "space");
+        removeclass($(".sky"), "sky");
         addclass($("div.toppanel").find("li"), "showed");
 
     }
@@ -119,6 +128,8 @@ $(document).ready(function(){
     addclass($(objectDom.bottompanel).find("div"), "showed");
     addclass($(objectDom.bottompanel).find("div").eq(1), "herosays");
     addclass($(objectDom.bottompanel).find("li").eq(0), "showed");
+    addclass($(objectDom.toppanel).children("div").eq(0), "sky");
+    awesomeSky();
     $(objectDom.bottompanel).find("li").eq(0).text("Play").one("click", play);
     $(objectDom.toppanel).find("li").click(goToPlanet);
     $(objectDom.bottompanel).find("li").eq(2).click(backToShip);
