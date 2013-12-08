@@ -53,10 +53,9 @@ $(document).ready(function(){
     function awesomeSky(){
         var start = null;
         function step(timestamp){
-            debugger;
             var progress;
             var spritelength = 600;
-            var spritenum = 3;
+            var spritenum = 4;
             var currentposition;
             var frame;
             var x_axis;
@@ -67,11 +66,30 @@ $(document).ready(function(){
             currentposition = progress % (spritelength*spritenum);
             frame = Math.floor(currentposition/spritelength);
             x_axis = frame*spritelength + "px";
-            $("div.sky").css("background-position",  x_axis);
-            var pos = $("div.sky").css("background-position");
+            $("div.sky").css("background-position", "-" + x_axis);
             requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
+    }
+    function flyingToPlanet(coord){
+        var start = null;
+        function step(timestamp){
+            debugger;
+            var progress;
+            var currentposition = 560;
+            var destX;
+            var frame;
+            if(start === null){
+                start = timestamp;
+            }
+            progress = timestamp - start;
+            $(".toppanel").find("li").eq(6).css("left", destX);
+            if(destX < coord){
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+
     }
     //----------------------------------------------------------------------------------------
     function play(){
@@ -81,13 +99,11 @@ $(document).ready(function(){
             "We'll have to land on each of the five planets to find our buyer. Are you ready?");
         $(this).one("click", toSpace);
     }
-    function toSpace(){
-        $(this).text("Land on");
+    function toSpace(){$(this).text("Land on");
         $(".herosays").find("span").text("Fly to one of these planets, land on and explore.");
         addclass($("div.toppanel"), "space");
         removeclass($(".sky"), "sky");
         addclass($("div.toppanel").find("li"), "showed");
-
     }
     function goToPlanet(){
         var _id  = $(this).attr("data-planet");
@@ -97,13 +113,15 @@ $(document).ready(function(){
                     return "We've been here, only monsters and nothing more."
                 }
                 else{
-                    $(objectDom.bottompanel).find("li").eq(0).removeClass("showed");
+                    var coord = (parseInt($(this).css("left"), 10));
+                    flyingToPlanet(coord);
+                   /* $(objectDom.bottompanel).find("li").eq(0).removeClass("showed");
                     $(objectDom.bottompanel).find("li").eq(1).addClass("showed");
                     $(objectDom.bottompanel).find("li").eq(2).addClass("showed");
                     $(objectDom.toppanel).removeClass("space").addClass(quest[i]._id).find("li").removeClass("showed");
                     $("div.hero").addClass("showed");
                     $(".herosays").find("span").text(quest[i].conversations);
-                    addclass($("div.enemy"), quest[i]._id + "char");
+                    addclass($("div.enemy"), quest[i]._id + "char");*/
                 }
             }
         }
