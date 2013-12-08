@@ -21,7 +21,7 @@ ul{
     background-size: 1280px;
 }
 .space{
-    background: radial-gradient(royalblue, midnightblue);
+    background: radial-gradient(midnightblue, black);
 }
 .sky{
     width: 600px;
@@ -29,7 +29,7 @@ ul{
     position: absolute;
     left: 350px;
     top: 180px;
-    background: url("sky.svg") no-repeat;
+    background: url("sky.svg") no-repeat 100px 100px;
     z-index: -1;
 }
 .toppanel li{
