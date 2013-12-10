@@ -29,6 +29,7 @@ $(document).ready(function(){
         toppanel: ".toppanel",
         bottompanel: ".bottompanel"
     }
+    var index;//not cool
     var yourhealth = 100;
     var enemyhealth = Math.floor((Math.random()*100)+50);
     function fightmode(){
@@ -50,7 +51,7 @@ $(document).ready(function(){
         return health - hit;
     }
     //-------------------------------------------------------------------------
-    function awesomeSky(){
+   /* function awesomeSky(){
         var start = null;
         function step(timestamp){
             var progress;
@@ -70,26 +71,52 @@ $(document).ready(function(){
             requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
-    }
+    } */
     function flyingToPlanet(coord){
         var start = null;
-        function step(timestamp){
-            debugger;
-            var progress;
-            var currentposition = 560;
-            var destX;
-            var frame;
-            if(start === null){
-                start = timestamp;
+        var animationTime = 2000;
+        function helper(duration, min, max, direction){
+            if(min > max){
+                var temp = min;
+                min = max;
+                max = temp;
             }
-            progress = timestamp - start;
-            $(".toppanel").find("li").eq(6).css("left", destX);
-            if(destX < coord){
+            var dist = max - min;
+            var point = dist*duration/animationTime;
+            if(direction){
+                return Math.min(min + point, max);
+            }
+            else{
+                return Math.max(min, max - point);
+            }
+        }
+        function step(timepenis){
+            var duration;
+            var x_axis;
+            var y_axis;
+            debugger;
+            if(start === null){
+                start = timepenis;
+            }
+            duration = timepenis - start;
+            if(coord[0].shipX < coord[2].planetX){
+                x_axis = helper(duration, coord[0].shipX, coord[2].planetX, true);
+            }
+            else{
+                x_axis = helper(duration, coord[0].shipX, coord[2].planetX, false);
+            }
+            if(coord[1].shipY < coord[3].planetY){
+                y_axis = helper(duration,coord[1].shipY, coord[3].planetY, true);
+            }
+            else{
+                y_axis = helper(duration,coord[1].shipY, coord[3].planetY, false);
+            }
+            $("#spaceship").css({left: x_axis + "px", top: y_axis + "px"});
+            if(duration < animationTime){
                 requestAnimationFrame(step);
             }
         }
         requestAnimationFrame(step);
-
     }
     //----------------------------------------------------------------------------------------
     function play(){
@@ -107,24 +134,33 @@ $(document).ready(function(){
     }
     function goToPlanet(){
         var _id  = $(this).attr("data-planet");
+        var coord = [];
         for(var i = 0; i < quest.length; i++){
             if(quest[i]._id === _id){
                 if(quest[i].complete == true){
                     return "We've been here, only monsters and nothing more."
                 }
                 else{
-                    var coord = (parseInt($(this).css("left"), 10));
-                    flyingToPlanet(coord);
-                   /* $(objectDom.bottompanel).find("li").eq(0).removeClass("showed");
-                    $(objectDom.bottompanel).find("li").eq(1).addClass("showed");
-                    $(objectDom.bottompanel).find("li").eq(2).addClass("showed");
-                    $(objectDom.toppanel).removeClass("space").addClass(quest[i]._id).find("li").removeClass("showed");
-                    $("div.hero").addClass("showed");
-                    $(".herosays").find("span").text(quest[i].conversations);
-                    addclass($("div.enemy"), quest[i]._id + "char");*/
+                    index = i;
+                    coord = [
+                        {shipX: parseInt($("#spaceship").css("left"),10)},
+                        {shipY: parseInt($("#spaceship").css("top"),10)},
+                        {planetX: parseInt($(this).css("left"), 10)},
+                        {planetY: parseInt($(this).css("top"), 10)}];
                 }
             }
         }
+        flyingToPlanet(coord);
+        $(objectDom.bottompanel).find("li").eq(0).click(landOn);
+    }
+    function landOn(){
+        $(this).removeClass("showed");
+        $(objectDom.bottompanel).find("li").eq(1).addClass("showed");
+        $(objectDom.bottompanel).find("li").eq(2).addClass("showed");
+        $(objectDom.toppanel).removeClass("space").addClass(quest[index]._id).find("li").removeClass("showed");
+        $("div.hero").addClass("showed");
+        $(".herosays").find("span").text(quest[index].conversations);
+        addclass($("div.enemy"), quest[index]._id + "char");
     }
     function backToShip(){
         addclass($(objectDom.bottompanel).find("li").eq(0), "showed");
@@ -147,8 +183,9 @@ $(document).ready(function(){
     addclass($(objectDom.bottompanel).find("div").eq(1), "herosays");
     addclass($(objectDom.bottompanel).find("li").eq(0), "showed");
     addclass($(objectDom.toppanel).children("div").eq(0), "sky");
-    awesomeSky();
+    //awesomeSky();
     $(objectDom.bottompanel).find("li").eq(0).text("Play").one("click", play);
-    $(objectDom.toppanel).find("li").click(goToPlanet);
+    $(objectDom.toppanel).find("li.planets").click(goToPlanet);
+    //$(objectDom.bottompanel).find("li").eq(0).click(landOn);
     $(objectDom.bottompanel).find("li").eq(2).click(backToShip);
 });
