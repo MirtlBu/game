@@ -2,8 +2,9 @@ body{
     margin: 0;
     padding: 0;
     height: 890px;
-    background-color: darkgray;
+    font-family: 'Fresca', Arial, Helvetica, sans-serif;
 }
+
 ::selection{
     background: transparent;
 }
@@ -17,8 +18,12 @@ ul{
 .toppanel{
     width: 100%;
     height: 700px;
+}
+.deck{
     background: url("ship.svg") no-repeat 0 0;
-    background-size: 1280px;
+}
+.poster{
+    background: url("poster.svg") no-repeat 250px 10px black;
 }
 .space{
     background: radial-gradient(midnightblue, black);
@@ -28,7 +33,7 @@ ul{
     height: 200px;
     position: absolute;
     left: 350px;
-    top: 180px;
+    top: 160px;
     background: url("sky.svg") no-repeat 100px 100px;
     z-index: -1;
 }
@@ -41,27 +46,35 @@ ul{
     cursor: pointer;
     background: no-repeat;
     box-shadow: 0 0 25px 5px #aaaaaa;
-    display: none;
 }
 .toppanel li:nth-child(1){
+    top: 200px;
     left: 120px;
     background: url("ship_planets.svg") -314px 0;
+    z-index: 1;
 }
 .toppanel li:nth-child(2){
+    top: 100px;
     left: 340px;
     background: url("ship_planets.svg") -419px 0;
+    z-index: 1;
 }
 .toppanel li:nth-child(3){
     left: 560px;
     background: url("ship_planets.svg") -524px 0;
+    z-index: 1;
 }
 .toppanel li:nth-child(4){
+    top: 100px;
     left: 780px;
     background: url("ship_planets.svg") -209px 0;
+    z-index: 1;
 }
 .toppanel li:nth-child(5){
+    top: 200px;
     left: 1000px;
     background: url("ship_planets.svg") -105px 0;
+    z-index: 1;
 }
 .toppanel li:nth-child(6){
     top: 600px;
@@ -69,6 +82,8 @@ ul{
     border-radius: 0;
     background: url("ship_planets.svg") no-repeat 0 0;
     box-shadow: none;
+    cursor: default;
+    z-index: 2;
 }
 .aliens{
     background: url("aliens_wood.svg") no-repeat 0 0 olive;
@@ -91,7 +106,6 @@ ul{
     left: 100px;
     top: 270px;
     background: url("cat.svg") no-repeat 0 0;
-    display: none;
     position: absolute;
 }
 .enemy{
@@ -120,22 +134,27 @@ ul{
 .bottompanel{
     width: 100%;
     height: 198px;
-    border-top: 10px solid rgb(72,72,72) ;
+    background-color: darkgray;
+    border-top: 10px solid rgb(72,72,72);
 }
 
 .bottompanel > div{
     position: absolute;
     height: 198px;
-    display: none;
 }
 .bottompanel > div:nth-child(1){
     width: 325px;
     left: 0;
-    background: url("cat_portrait.svg") no-repeat 75px 0;
 }
 .bottompanel > div:nth-child(2){
     width: 620px;
     left: 330px;
+}
+.catsays{
+    background: url("portrait.svg") no-repeat 75px 10px;
+}
+.capitansays{
+    background: url("portrait.svg") no-repeat 75px -260px;
 }
 .herosays{
     background: url("cloud_button.svg") no-repeat 0 10px;
@@ -150,7 +169,6 @@ ul{
     top: 25px;
     left: 65px;
     font-size: 22px;
-    font-family: sans-serif;
     text-align: center;
 }
 .bottompanel > div:nth-child(3){
@@ -165,21 +183,19 @@ ul{
     background: url("cloud_button.svg") no-repeat -1455px -102px;
     cursor: pointer;
     text-align: center;
-    font-size: 18px;
-    font-family: sans-serif;
-    display: none;
+    font-size: 26px;
 }
 .bottompanel li:nth-child(1){
-    top: 60px;
-}
-.bottompanel li:nth-child(2){
     top: 10px;
 }
-.bottompanel li:nth-child(3){
+.bottompanel li:nth-child(2){
     top: 100px;
 }
+.bottompanel li.onebutton{
+    top: 60px;
+}
 .bottompanel > div:nth-child(3).aliens{
-    background: url("cat_portrait.svg") no-repeat -205px 0;
+    background: url("portrait.svg") no-repeat -205px 0;
 }
 div.showed, span.showed, li.showed{
     display: block;
